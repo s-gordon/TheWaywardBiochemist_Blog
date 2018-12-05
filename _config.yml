@@ -3,8 +3,8 @@ author: Shane Gordon
 # email: shagord.public@gmail.com
 description: Musings on science, programming, and board games
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-# url: "http://waywardbiochemist.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://waywardbiochemist.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: WaywardBiochem
 github_username:  s-gordon
 
