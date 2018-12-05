@@ -175,9 +175,9 @@ gulp.task( "img", () => {
         withMetadata: false,
         errorOnEnlargement: false,
         errorOnUnusedConfig: false,
-        silent: true
+        silent: true,
       } ) )
-      .pipe( imagemin() )
+      .pipe( imagemin({verbose: true}) )
       .pipe( gulp.dest( "assets/img/posts/" ) );
 } );
 
