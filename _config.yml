@@ -4,7 +4,7 @@ author: Shane Gordon
 description: Musings on science, programming, and board games
 baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
-url: "http://waywardbiochemist.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://waywardbiochemist.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: WaywardBiochem
 github_username:  s-gordon
 
