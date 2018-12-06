@@ -6,6 +6,8 @@ const gulp = require( "gulp" );
 const cp = require( "child_process" );
 const notify = require( "gulp-notify" );
 const size = require( "gulp-size" );
+const run = require( "gulp-run" );
+const gutil = require( "gulp-util" );
 
 // Basic workflow plugins
 const browserSync = require( "browser-sync" );
@@ -51,7 +53,7 @@ function handleErrors() {
 }
 
 // SASS
-gulp.task( "sass", () => {
+gulp.task( "build:sass", () => {
   return gulp.src( src.css )
     .pipe( sourcemaps.init() )
     .pipe( sass( {
@@ -70,7 +72,7 @@ gulp.task( "sass", () => {
 } );
 
 //  JS
-gulp.task( "js", () => {
+gulp.task( "build:js", () => {
   return browserify( src.js, { debug: true, extensions: [ "es6" ] } )
     .transform( "babelify", { presets: [ "es2015" ] } )
     .bundle()
@@ -132,7 +134,7 @@ gulp.task( "sw", () => {
 } );
 
 // Images
-gulp.task( "img", () => {
+gulp.task( "build:img", () => {
   return gulp.src( "_img/posts/*.{png,jpg}" )
     .pipe( responsive( {
         "*": [ // For all the images in the posts folder
@@ -175,10 +177,15 @@ gulp.task( "img", () => {
         withMetadata: false,
         errorOnEnlargement: false,
         errorOnUnusedConfig: false,
-        silent: true,
+        silent: true
       } ) )
-      .pipe( imagemin({verbose: true}) )
+      .pipe( imagemin( { verbose: true } ) )
       .pipe( gulp.dest( "assets/img/posts/" ) );
+} );
+
+gulp.task( "build:img-icons", () => {
+  return gulp.src( [ "_img/icons/**/*.{png,jpg}" ] )
+    .pipe( gulp.dest( "assets/img/icons/" ) );
 } );
 
 // Build the Jekyll Site
@@ -209,7 +216,7 @@ gulp.task( "serve", function() {
   } );
 } );
 
-gulp.task( "styles", gulp.series( [ "sass", "critical" ] ) );
+gulp.task( "styles", gulp.series( [ "build:sass", "critical" ] ) );
 
 gulp.task( "watch", () => {
   gulp.watch( "_sass/**/*.scss", gulp.series( "styles" ) );
@@ -221,19 +228,38 @@ gulp.task( "watch", () => {
     "pages_/*.md",
     "_include/*html"
   ], gulp.series( "rebuild" ) );
-  gulp.watch( "_js/**/*.js", gulp.series( "js" ) );
+  gulp.watch( "_js/**/*.js", gulp.series( "build:js" ) );
 } );
+
+// gulp.task( "build", gulp.series( [
+//   "clean",
+//   gulp.parallel( [ "build:sass", "build:js", "build:img" ] ),
+//   "jekyll-build",
+//   "critical",
+//   "sw"
+// ] ) );
 
 gulp.task( "build", gulp.series( [
   "clean",
-  gulp.parallel( [ "sass", "js", "img" ] ),
+  gulp.parallel( [ "build:sass", "build:js", "build:img", "build:img-icons" ] ),
   "jekyll-build",
   "critical",
   "sw"
 ] ) );
 
-gulp.task( "default", gulp.series( [
-  "build",
-  "serve",
-  "watch"
-] ) );
+// gulp.task( "default", gulp.series( [
+//   "build",
+//   "serve",
+//   "watch"
+// ] ) );
+
+// gulp.task( "default", [ "build" ] );
+
+// Updates Ruby gems
+gulp.task( "update:bundle", function() {
+  return gulp.src( "" )
+    .pipe( run( "bundle install" ) )
+    .pipe( run( "bundle update" ) )
+    .pipe( notify( { message: "Bundle Update Complete" } ) )
+    .on( "error", gutil.log );
+} );
