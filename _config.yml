@@ -23,6 +23,7 @@ navigation: # Navigation links
   - {name: 'Home', link: '/'}
   - {name: 'About', link: '/about'}
   - {name: 'Contact', link: '/contact'}
+  - {name: 'Archive', link: '/categories'}
 
 tagline: >
   Musings on science, programming, and board games
