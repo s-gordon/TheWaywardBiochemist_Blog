@@ -9,6 +9,7 @@ npm-debug.log
 maps
 assets/img
 assets/icons
+sw.js
 
 # OS Generated files #
 ######################
