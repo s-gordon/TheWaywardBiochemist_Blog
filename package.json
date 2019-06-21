@@ -29,7 +29,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.0.1",
     "gulp-htmlmin": "^3.0.0",
-    "gulp-imagemin": "^4.0.0",
+    "gulp-imagemin": "^6.0.0",
     "gulp-notify": "^3.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-responsive": "^2.14.0",
