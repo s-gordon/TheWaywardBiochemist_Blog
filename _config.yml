@@ -28,7 +28,7 @@ navigation: # Navigation links
 tagline: >
   Musings on science, programming, and board games
 
-hero_img: posts/sleek_lg.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
+hero_img: posts/sleek_lg.jpeg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
 email: waywardbiochemist@gmail.com # email for form submission
 
