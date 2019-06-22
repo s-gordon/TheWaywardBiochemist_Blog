@@ -1,7 +1,7 @@
 title: Wayward Biochemist
 author: Shane Gordon
 # email: shagord.public@gmail.com
-description: Musings on science, programming, and board games
+description: Musings on science & programming.
 baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 url: "https://waywardbiochemist.netlify.com" # the base hostname & protocol for your site, e.g. http://example.com
@@ -26,7 +26,7 @@ navigation: # Navigation links
   - {name: 'Archive', link: '/categories'}
 
 tagline: >
-  Musings on science, programming, and board games
+  Musings on science & programming.
 
 hero_img: posts/sleek_lg.jpeg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
