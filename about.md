@@ -6,8 +6,8 @@ permalink: /about/
 
 # Me #
 
-I’m Shane Gordon. I’m a Melbourne-based biochemist/molecular modeller, PhD
-student, proteomics scientist, and avid road cyclist.
+I’m Shane Gordon. I’m a Melbourne-based protein biochemist, board gamer, and
+avid road cyclist.
 
 You can find me on [Twitter](https://twitter.com/WaywardBiochem),
 [GitHub](http://github.com/s-gordon), and
